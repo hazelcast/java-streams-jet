@@ -1,0 +1,12 @@
+== Java 8 Stream Jet adapter
+
+This project requires Java 11+.
+
+To run, execute:
+
+[source,bash]
+----
+mvn compile exec:exec
+----
+
+This will print integers from 1 to 127 in the standard out.
