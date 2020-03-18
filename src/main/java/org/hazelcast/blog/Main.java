@@ -9,10 +9,9 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
-        var stream = Stream.iterate(1, i -> i + 1);
         var pipeline = Pipeline.create();
         var batch = SourceBuilder
-                .batch("java-8-stream", new Java8StreamSource<>(stream))
+                .batch("java-8-stream", new Java8StreamSource<>(() -> Stream.iterate(1, i -> i + 1)))
                 .fillBufferFn(new Java8StreamFiller<>())
                 .build();
         pipeline.drawFrom(batch)
